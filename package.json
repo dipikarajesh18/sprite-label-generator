@@ -1,18 +1,24 @@
 {
-  "name": "annotation_site",
+  "name": "sprite-label-generator",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dipikarajesh18/sprite-label-generator.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dipikarajesh18/sprite-label-generator/issues"
+  },
+  "homepage": "https://github.com/dipikarajesh18/sprite-label-generator#readme",
   "dependencies": {
-    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "mysql": "^2.18.1",
-    "uuid": "^9.0.0"
+    "mysql": "^2.18.1"
   }
 }
