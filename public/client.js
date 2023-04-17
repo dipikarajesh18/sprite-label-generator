@@ -1,6 +1,9 @@
 const spriteId = document.getElementById("spriteId");
 const spriteImage = document.getElementById("sprite-image");
 const annotationInput = document.getElementById("annotation");
+const isunknownInput = document.getElementById("is_unknown");
+const isTileInput = document.getElementById("is_tile");
+const colorInput = document.getElementById("color_opt");
 const submitButton = document.getElementById("submitButton");
 
 let spriteData;
@@ -57,6 +60,9 @@ function getRandomSprite() {
 // Function to submit annotation to the server
 function submitAnnotation() {
   var annotation = annotationInput.value.trim();
+  var is_unknown = isunknownInput.checked;
+  var is_tile = isTileInput.checked;
+  var color = colorInput.value;
   var sprite_db_id = spriteData.SPRITE_DB_ID;
   var sprite_hex = spriteData.SPRITE_HEX;
   if (annotation === '') {
@@ -68,6 +74,9 @@ function submitAnnotation() {
     sprite_db_id: sprite_db_id,
     sprite_hex: sprite_hex,
     annotation: annotation,
+    is_unknown: is_unknown,
+    is_tile: is_tile,
+    color: color
   }
   console.log(data);
   fetch("/insert-annotation", {
@@ -82,6 +91,9 @@ function submitAnnotation() {
       console.log(data);
       getRandomSprite();
       document.getElementById("annotation").value = "";
+      isunknownInput.checked = false;
+      isTileInput.checked = false;
+      colorInput.value = "none";
     })
     .catch(error => console.error(error));
   
