@@ -41,7 +41,7 @@ app.get('/get-random-sprite', (req, res) => {
 app.post('/insert-annotation', (req, res) => {
   // Get the data from the POST request
   console.log(req.body)
-  const spriteId = req.body.sprite_id;
+  const spriteId = req.body.sprite_db_id;
   const annotation = req.body.annotation;
   const sprite_hex = req.body.sprite_hex;
   console.log("INSERTING:")
