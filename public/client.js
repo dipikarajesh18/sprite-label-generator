@@ -8,15 +8,17 @@ let spriteData;
 let PICO_PALETTE = ['#000000','#1D2B53','#7E2553','#008751','#AB5236','#5F574F','#C2C3C7','#FFF1E8','#FF004D','#FFA300','#FFEC27','#00E436','#29ADFF','#83769C','#FF77A8','#FFCCAA']
 
 const canvas = document.createElement('canvas');
-canvas.width = 8;
-canvas.height = 8;
+canvas.width = 256;
+canvas.height = 256;
 const context = canvas.getContext('2d');
 
 // Convert sprite hex to image
 function convertSpriteHexToImage(spriteHex) {
+
+  return new Promise(function(resolve, reject) {
   //clear the canvas
   context.fillStyle = "#000";
-  context.fillRect(0,0,8,8);
+  context.fillRect(0,0,256,256);
 
   //draw each color pixel by pixel - row by row
   var index = 0;
@@ -24,11 +26,12 @@ function convertSpriteHexToImage(spriteHex) {
     for (let j = 0; j < 8; j++) {
       const colorIndex = parseInt(spriteHex[index], 16);
       context.fillStyle = PICO_PALETTE[colorIndex]
-      context.fillRect(j,i,1,1)
+      context.fillRect(j*32,i*32,32,32)
       index++;
     }
   }
-  return canvas.toDataURL();  ///return the sprite image as a data url
+  resolve(canvas.toDataURL());  ///return the sprite image as a data url
+  });
 }
 
 // Function to get a random sprite from the server and display it
