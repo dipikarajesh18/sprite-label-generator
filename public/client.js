@@ -49,7 +49,7 @@ function getRandomSprite() {
       console.log("SPRITE_HEX:", data.SPRITE_HEX);
       console.log("SPRITE_DB_ID:", data.SPRITE_DB_ID);
       spriteData.textContent = `${data.SPRITE_DB_ID}`;
-      spriteID.innerHTML = "#" + data.SPRITE_DB_ID;
+      spriteId.innerHTML = "#" + data.SPRITE_DB_ID;
       convertSpriteHexToImage(data.SPRITE_HEX.replace(/\n/g, '')).then(function(dataUrl) {
         spriteImage.src = dataUrl;
       }).catch(function(error) {
