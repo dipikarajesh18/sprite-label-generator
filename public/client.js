@@ -14,6 +14,8 @@ const context = canvas.getContext('2d');
 
 // Convert sprite hex to image
 function convertSpriteHexToImage(spriteHex) {
+
+  return new Promise(function(resolve, reject) {
   //clear the canvas
   context.fillStyle = "#000";
   context.fillRect(0,0,8,8);
@@ -28,7 +30,8 @@ function convertSpriteHexToImage(spriteHex) {
       index++;
     }
   }
-  return canvas.toDataURL();  ///return the sprite image as a data url
+  resolve(canvas.toDataURL());  ///return the sprite image as a data url
+  });
 }
 
 // Function to get a random sprite from the server and display it
