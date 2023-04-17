@@ -49,6 +49,7 @@ function getRandomSprite() {
       console.log("SPRITE_HEX:", data.SPRITE_HEX);
       console.log("SPRITE_DB_ID:", data.SPRITE_DB_ID);
       spriteData.textContent = `${data.SPRITE_DB_ID}`;
+      spriteID.innerHTML = "#" + data.SPRITE_DB_ID;
       convertSpriteHexToImage(data.SPRITE_HEX.replace(/\n/g, '')).then(function(dataUrl) {
         spriteImage.src = dataUrl;
       }).catch(function(error) {
@@ -60,6 +61,7 @@ function getRandomSprite() {
 // Function to submit annotation to the server
 function submitAnnotation() {
   var annotation = annotationInput.value.trim();
+  annotation = annotation === '' ? null : annotation;
   var is_unknown = isunknownInput.checked;
   var is_tile = isTileInput.checked;
   var color = colorInput.value;
@@ -90,6 +92,7 @@ function submitAnnotation() {
     .then(data => {
       console.log(data);
       getRandomSprite();
+      spriteId.innerHTML = "#" + data.SPRITE_DB_ID;
       document.getElementById("annotation").value = "";
       isunknownInput.checked = false;
       isTileInput.checked = false;
