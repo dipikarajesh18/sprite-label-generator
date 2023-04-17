@@ -65,3 +65,7 @@ img {
   margin: 50px auto; /* center image */
   display: block;
 }
+
+canvas {
+  image-rendering: pixelated;
+}
