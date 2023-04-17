@@ -113,3 +113,10 @@ submitButton.disabled = true;
 function init(){
   getRandomSprite();
 }
+
+//submit with enter key press
+document.body.onkeydown = function(e){
+  if(e.keyCode == 13){
+    submitAnnotation();
+  }
+};
