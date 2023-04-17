@@ -44,15 +44,17 @@ app.post('/insert-annotation', (req, res) => {
   const spriteId = req.body.sprite_id;
   const annotation = req.body.annotation;
   const sprite_hex = req.body.sprite_hex;
-  const username = req.body.uname
   console.log("INSERTING:")
   console.log("SPRITE DB ID:", spriteId);
   console.log("SPRITE_HEX:", sprite_hex);
   console.log("ANNOTATION:", annotation);
   
   // Insert the annotation into the database
-  const query = 'INSERT INTO user_levels_annotated (ANNOTATION_ID, LEVEL_ID, ASCII_MAP, MAP_SIZE, TIME_MADE, ANNOTATION, ANN_AUTHOR) VALUES (null, ?, ?, ?, ?, ?, ?)';
-  sql.query(query, [levelId, ascii_map, map_size, 'CURRENT_TIMESTAMP', annotation, username], (err, result) => {
+  // const query = 'INSERT INTO user_levels_annotated (ANNOTATION_ID, LEVEL_ID, ASCII_MAP, MAP_SIZE, TIME_MADE, ANNOTATION, ANN_AUTHOR) VALUES (null, ?, ?, ?, ?, ?, ?)';
+
+  const query = 'UPDATE sprite_labels SET user_label = ?, timestamp = CURRENT_TIMESTAMP WHERE SPRITE_DB_ID = ?;';
+
+  sql.query(query, [annotation, spriteId], (err, result) => {
     if (err) {
       throw err;
     }

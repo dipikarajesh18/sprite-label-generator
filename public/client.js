@@ -2,7 +2,6 @@ const spriteId = document.getElementById("spriteId");
 const spriteImage = document.getElementById("sprite-image");
 const annotationInput = document.getElementById("annotation");
 const submitButton = document.getElementById("submitButton");
-const usernameInput = document.getElementById("username");
 
 let spriteData;
 
@@ -57,7 +56,6 @@ function submitAnnotation() {
   var annotation = annotationInput.value.trim();
   var sprite_db_id = spriteData.SPRITE_DB_ID;
   var sprite_hex = spriteData.SPRITE_HEX;
-  var username = usernameInput.value.trim()
   if (annotation === '') {
     alert('Please enter an annotation.');
     return;
@@ -67,7 +65,6 @@ function submitAnnotation() {
     sprite_db_id: sprite_db_id,
     sprite_hex: sprite_hex,
     annotation: annotation,
-    uname: username
   }
   console.log(data);
   fetch("/insert-annotation", {
