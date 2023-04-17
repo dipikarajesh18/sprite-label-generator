@@ -64,7 +64,7 @@ function submitAnnotation() {
   annotation = annotation === '' ? null : annotation;
   var is_unknown = isunknownInput.checked;
   var is_tile = isTileInput.checked;
-  var color = colorInput.value;
+  var color_in = colorInput.value;
   var sprite_db_id = spriteData.SPRITE_DB_ID;
   var sprite_hex = spriteData.SPRITE_HEX;
   if (annotation === '' && !is_unknown) {
@@ -78,7 +78,7 @@ function submitAnnotation() {
     annotation: annotation,
     is_unknown: is_unknown,
     is_tile: is_tile,
-    color: color
+    color_in: color_in
   }
   console.log(data);
   fetch("/insert-annotation", {
