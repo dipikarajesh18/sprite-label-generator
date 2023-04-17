@@ -65,8 +65,8 @@ function submitAnnotation() {
   var color = colorInput.value;
   var sprite_db_id = spriteData.SPRITE_DB_ID;
   var sprite_hex = spriteData.SPRITE_HEX;
-  if (annotation === '') {
-    alert('Please enter an annotation.');
+  if (annotation === '' && !is_unknown) {
+    alert('Please enter an annotation or select "Unknown"');
     return;
   }
 

@@ -51,6 +51,9 @@ app.post('/insert-annotation', (req, res) => {
   console.log("SPRITE DB ID:", spriteId);
   console.log("SPRITE_HEX:", sprite_hex);
   console.log("ANNOTATION:", annotation);
+  console.log("IS_UNKNOWN:", is_unknown);
+  console.log("IS_TILE:", is_tile);
+  console.log("COLOR:", color_in);
   
   // Insert the annotation into the database
   // const query = 'INSERT INTO user_levels_annotated (ANNOTATION_ID, LEVEL_ID, ASCII_MAP, MAP_SIZE, TIME_MADE, ANNOTATION, ANN_AUTHOR) VALUES (null, ?, ?, ?, ?, ?, ?)';
