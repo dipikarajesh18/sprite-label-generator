@@ -79,10 +79,12 @@ label{
   cursor:pointer;
 }
 #aboutPopUp{
-  display:none;
+  /* display:none; */
   position:absolute;
   top:10px;
-  left:240px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 10px);
+  transform: translate(-50%, 10px);
   width:420px;
   height:620px;
   background-color:rgba(0,0,0,0.83);
