@@ -61,16 +61,17 @@ function getRandomSprite() {
 // Function to submit annotation to the server
 function submitAnnotation() {
   var annotation = annotationInput.value.trim();
+  if (annotation === '' && !is_unknown) {
+    alert('Please enter an annotation or select "Unknown"');
+    return;
+  }
   annotation = annotation === '' ? null : annotation;
   var is_unknown = isunknownInput.checked;
   var is_tile = isTileInput.checked;
   var color_in = colorInput.value;
   var sprite_db_id = spriteData.SPRITE_DB_ID;
   var sprite_hex = spriteData.SPRITE_HEX;
-  if (annotation === '' && !is_unknown) {
-    alert('Please enter an annotation or select "Unknown"');
-    return;
-  }
+  
 
   var data = {
     sprite_db_id: sprite_db_id,
@@ -115,7 +116,7 @@ function init(){
 }
 
 //submit with enter key press
-document.body.onkeydown = function(e){
+document.getElementById("container").onkeydown = function(e){
   if(e.keyCode == 13){
     submitAnnotation();
   }
