@@ -121,3 +121,4 @@ document.getElementById("container").onkeydown = function(e){
     submitAnnotation();
   }
 };
+

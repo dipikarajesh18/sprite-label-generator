@@ -9,44 +9,150 @@
 <head>
   <title>Describe this sprite</title>
   <link href="style.css" type="text/css" rel="stylesheet">
+    <style>
+      
+    </style>
 </head>
 <body onload="init()">
   <div id="container">
+
+      <div id="helpBtn" class="prevent-select">?</div>
+      <div id="aboutPopUp">
+        <div class="helpTxt" style="font-weight:bold;font-size:16px;">
+          This is a research project to create an open-soruced dataset for Procedural Sprite Generation.
+        </div>
+        <div class="helpTxt">
+          Please give a generic description for the sprite you see in the box. You can also check the "I have no idea" box if you don't know what it is.
+          </div>
+          <div class="helpTxt">
+            You can also optionally specify whether the sprite if it contains a prominent color with the dropdown menu.
+          </div>
+          <div class="helpTxt" style="display:flex;">
+              <img src="wartortle.png" style="width:100px; height:100px;margin-right:5px;margin-left:-5px;">
+              <div>For example, this sprite could be described as 'a blue turtle with horns standing on 2 legs' instead of 'Wartortle'</div>
+          </div>
+          <div class="helpTxt">
+            These sprites were taken exclusively from games with the <a href='https://creativecommons.org/licenses/'>CC license</a> on the <a href='https://www.lexaloffle.com/bbs/'>PICO-8 BBS</a>. 
+            Feel free to contact us for any questions <a href='https://twitter.com/MasterMilkX'>@MasterMilk</a> and <a href='https://twitter.com/dipikarajesh18'>@dipikarajesh18</a>.
+          </div>
+        </div>
+
       <div id="desc_title">Describe this sprite!</div>
       <div id="spriteId">#69</div>
       <img id='sprite-image' src="">
       <input text="text" id="annotation" placeholder="Enter a description here!">
+      <!-- color dropbox -->
+      <select id="color_opt">
+        <option value="none">(Color)</option>
+        <option value="black">Black</option>
+        <option value="dark-blue">Dark Blue</option>
+        <option value="dark-blue">Dark Purple</option>
+        <option value="dark-green">Dark Green</option>
+        <option value="brown">Brown</option>
+        <option value="dark-grey">Dark Grey</option>
+        <option value="light-grey">Light Grey</option>
+        <option value="white">White</option>
+        <option value="red">Red</option>
+        <option value="orange">Orange</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="lavender">Lavender</option>
+        <option value="pink">Pink</option>
+        <option value="light-peach">Light Peach</option>
+    </select>
+    
       <div id="ex_text">Example: an orange fox with a santa hat</div>
+      
       <br>
       <div id="desc_opt">
           <!-- checkboxes -->
           <input type="checkbox" value="is_unknown" id="is_unknown">
-          <label for="unk" style='margin-right:10px;'>Unknown</label>
-          <input type="checkbox" value="is_tile" id="is_tile">
-          <label for="ani">Tile</label>
-          <!-- color dropbox -->
-          <select id="color_opt">
-              <option value="none">(Color)</option>
-              <option value="black">Black</option>
-              <option value="dark-blue">Dark Blue</option>
-              <option value="dark-blue">Dark Purple</option>
-              <option value="dark-green">Dark Green</option>
-              <option value="brown">Brown</option>
-              <option value="dark-grey">Dark Grey</option>
-              <option value="light-grey">Light Grey</option>
-              <option value="white">White</option>
-              <option value="red">Red</option>
-              <option value="orange">Orange</option>
-              <option value="yellow">Yellow</option>
-              <option value="green">Green</option>
-              <option value="blue">Blue</option>
-              <option value="lavender">Lavender</option>
-              <option value="pink">Pink</option>
-              <option value="light-peach">Light Peach</option>
-          </select>
+          <label for="unk" style='margin-right:10px;' id="idk_label">I have no idea</label>
+          <input type="checkbox" value="is_tile" id="is_tile" style="display:none">
+          <!-- <label for="ani">Tile</label> -->
+          
       </div>
       <button id="submitButton">Submit</button>
   </div>
   <script src="/client.js"></script>
+  <script src="/cheat.js"></script>
+  <script>
+    
+    var helpBtn = document.getElementById("helpBtn");
+    var aboutPopUp = document.getElementById("aboutPopUp");
+
+    //toggle the popup when the help button is clicked
+    helpBtn.addEventListener("click", function(){
+      if(aboutPopUp.style.display == "block"){
+        aboutPopUp.style.display = "none";
+      }else{
+        aboutPopUp.style.display = "block";
+      }
+    });
+
+    //close the popup when the user clicks outside of it
+    window.addEventListener("click", function(event){
+      if((event.target == document.body || event.target == container) && aboutPopUp.style.display == "block"){
+        aboutPopUp.style.display = "none";
+      }
+    });
+
+    //close the popup when the user presses escape
+    window.addEventListener("keydown", function(event){
+      if(event.key == "Escape" && aboutPopUp.style.display == "block"){
+        aboutPopUp.style.display = "none";
+      }
+    });
+
+
+    /// cheats
+      var CheatCodes = {
+          "ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a":"konami"
+      }
+      var cheatkeyInd = 0;
+      var cheatSet = [];
+      var cheee = "";
+
+      var idk_label = document.getElementById("idk_label");
+
+      //enter cheat code
+      function enterCheatCode(e){
+          if(cheatkeyInd == 0){
+              let keys = Object.keys(CheatCodes);
+              for(let k=0;k<keys.length;k++){
+                  let curCheat = keys[k];
+                  let css = curCheat.split(",");
+                  console.log(css)
+
+                  //match
+                  if(e.key == css[0]){
+                      cheatSet = css;
+                      cheee = curCheat;
+                      cheatkeyInd++;
+                      return;
+                  }
+              }
+          }
+
+        if(e.key == cheatSet[cheatkeyInd]){
+          cheatkeyInd++;
+        }else{
+          cheatkeyInd = 0;
+          return;
+        }
+        
+        //activate cheat code
+        if(cheatkeyInd == cheatSet.length){
+          if(CheatCodes[cheee] == "konami"){
+              idk_label.innerHTML = "what the fuck is that?!";
+          }
+
+          keyInd = 0;
+        }
+      }
+
+      window.addEventListener("keydown", enterCheatCode, false);
+  </script>
 </body>
 </html>

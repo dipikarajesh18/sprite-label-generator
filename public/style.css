@@ -31,7 +31,7 @@ body{
   color: #ababab;
 }
 #annotation{
-  width:320px;
+  width:280px;
   height:32px;
   font-size:18px;
   margin-bottom:10px;
@@ -42,7 +42,7 @@ body{
   color:#232323;
 }
 #color_opt{
-  margin-left:30px;
+  margin-left:10px;
   font-size:16px;
 }
 label{
@@ -57,4 +57,55 @@ label{
 }
 #ex_text{
   font-size:16px;
+  color:#787878;
 }
+#helpBtn{
+  border-radius: 30px;
+  background-color: #5fc7e3;
+  font-size:18px;
+  border:2px solid black;
+  width:38px;
+  height:30px;
+  color:black;
+  padding-top:8px;
+  text-align:center;
+  position:absolute;
+  top:20px;
+  right:180px;
+  z-index: 10;
+}
+#helpBtn:hover{
+  background-color: #4fa1b8;
+  cursor:pointer;
+}
+#aboutPopUp{
+  display:none;
+  position:absolute;
+  top:10px;
+  left:240px;
+  width:420px;
+  height:620px;
+  background-color:rgba(0,0,0,0.83);
+  color:#fff;
+}
+.helpTxt{
+  padding:10px;
+  font-size:14px;
+  font-family: monospace;
+  border:1px solid white;
+  margin:20px auto;
+  width:80%;
+}
+.helpTxt a{
+  color:#5fc7e3;
+}
+.prevent-select{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome and Opera */
+}
+
