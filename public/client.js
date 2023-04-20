@@ -117,8 +117,22 @@ function init(){
 
 //submit with enter key press
 document.getElementById("container").onkeydown = function(e){
-  if(e.keyCode == 13){
+  if(e.key == "Enter"){
     submitAnnotation();
   }
 };
 
+// triple tap on the image to activate the easter egg
+var tapCount = 0;
+var tapTimer = null;
+spriteImage.addEventListener('click', function() {
+  tapCount++;
+  if (tapCount === 3) {
+    document.getElementById("idk_label").innerHTML = "what the fuck is that?!";
+    tapCount = 0;
+  }
+  clearTimeout(tapTimer);
+  tapTimer = setTimeout(function() {
+    tapCount = 0;
+  }, 500);
+});
