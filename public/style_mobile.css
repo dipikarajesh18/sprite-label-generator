@@ -1,0 +1,118 @@
+body{
+  background-color: #e7e7e7;
+  font-family: Arial, Helvetica, sans-serif;
+} 
+#container{
+  width:90vw;
+  height:90vh;
+  text-align: center;
+  display:block;
+  margin:auto;
+  /* border:1px solid black; */
+}
+#desc_title{
+  font-size:min(5vw,48px);
+  margin-top:2vw;
+  margin-bottom:1vw;
+  margin-left:auto;
+  margin-right:auto;
+  color:#232323;
+}
+#spriteId{
+  font-size:min(3vw,32px);
+  color:#898989;
+  margin-top:0.5vw;
+  margin-bottom:01vw;
+}
+#sprite-image{
+  width: min(55vw,640px);
+  height: min(55vw, 640px);
+  margin-bottom: 10px;
+  border:2px solid black;
+}
+::placeholder{
+  color: #ababab;
+}
+#annotation{
+  width:max(190px,40vw);
+  height:min(32px,4vw);
+  font-size:min(18px,4vw);
+}
+
+#color_opt{
+  margin-left:10px;
+  font-size:min(18px,4vw);
+}
+#desc_opt{
+  width:100%;
+  margin:auto;
+  color:#232323;
+}
+#idk_label{
+  font-size:min(18px,5vw);
+}
+#submitButton{
+  margin-top:30px;
+  font-size:min(18px,4vw);
+  width:min(128px,30vw);
+  border-radius: 10px;
+  background-color: #50cf7c;
+}
+#ex_text{
+  font-size:min(16px,3.5vw);
+  color:#787878;
+  margin-top:10px;
+}
+#helpBtn{
+  border-radius: 30px;
+  background-color: #5fc7e3;
+  font-size:min(18px,3vw);
+  border:2px solid black;
+  width:min(38px,5vw);
+  height:min(30px,4vw);
+  color:black;
+  padding-top:min(8px,1vw);
+  text-align:center;
+  position:fixed;
+  top:min(40px,3.vw);
+  margin-left:min(70vw,75%);
+  /* margin-left:80vw; */
+  z-index: 3;
+}
+#helpBtn:hover{
+  background-color: #4fa1b8;
+  cursor:pointer;
+}
+#aboutPopUp{
+  display:none;
+  position:absolute;
+  top:min(40px,3.6vw);
+  left: 50%;
+  -webkit-transform: translate(-50%, 10px);
+  transform: translate(-50%, 10px);
+  width:420px;
+  height:620px;
+  background-color:rgba(0,0,0,0.83);
+  color:#fff;
+}
+.helpTxt{
+  padding:10px;
+  font-size:14px;
+  font-family: monospace;
+  border:1px solid white;
+  margin:20px auto;
+  width:80%;
+}
+.helpTxt a{
+  color:#5fc7e3;
+}
+.prevent-select{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome and Opera */
+}
+
