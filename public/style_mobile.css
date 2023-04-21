@@ -55,14 +55,16 @@ body{
 }
 #desc_opt{
   width:100%;
-  margin:auto;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:min(10px,0.5vw);
   color:#232323;
 }
 #idk_label{
   font-size:min(18px,2.25vw);
 }
 #submitButton{
-  margin-top:min(2.5vw,30px);
+  margin-top:min(3vw,35px);
   font-size:min(20px,3vw);
   width:min(128px,20vw);
   border-radius: 10px;
