@@ -3,7 +3,7 @@ body{
   font-family: Arial, Helvetica, sans-serif;
 } 
 #container{
-  width:90vw;
+  width:50vw;
   height:90vh;
   text-align: center;
   display:block;
@@ -11,22 +11,22 @@ body{
   /* border:1px solid black; */
 }
 #desc_title{
-  font-size:min(5vw,48px);
-  margin-top:2vw;
-  margin-bottom:1vw;
+  font-size:min(4vw,36px);
+  margin-top:min(20px,2vw);
+  margin-bottom:min(8px,1vw);
   margin-left:auto;
   margin-right:auto;
   color:#232323;
 }
 #spriteId{
-  font-size:min(3vw,32px);
+  font-size:min(2.75vw,24px);
   color:#898989;
   margin-top:0.5vw;
-  margin-bottom:01vw;
+  margin-bottom:1vw;
 }
 #sprite-image{
-  width: min(55vw,640px);
-  height: min(55vw, 640px);
+  width: min(40vw,460px);
+  height: min(40vw, 460px);
   margin-bottom: 10px;
   border:2px solid black;
 }
@@ -34,14 +34,24 @@ body{
   color: #ababab;
 }
 #annotation{
-  width:max(190px,40vw);
+  /* width:max(190px,40vw);
   height:min(32px,4vw);
-  font-size:min(18px,4vw);
+  font-size:min(18px,4vw); */
+
+  /* width:min(530px,50em);
+  height:min(24px,3em);
+  font-size:min(20px,2.5em); */
+
+  width:min(30vw,640px);
+  height:min(3vw,24px);
+  font-size:min(2.75vw,20px);
 }
 
 #color_opt{
-  margin-left:10px;
-  font-size:min(18px,4vw);
+  margin-left:2vw;
+  margin-top:0.5em;
+  /* font-size:min(3.5vw,42px); */
+  font-size: min(2.75vw,20px);
 }
 #desc_opt{
   width:100%;
@@ -49,18 +59,18 @@ body{
   color:#232323;
 }
 #idk_label{
-  font-size:min(18px,5vw);
+  font-size:min(18px,2.25vw);
 }
 #submitButton{
-  margin-top:30px;
-  font-size:min(18px,4vw);
-  width:min(128px,30vw);
+  margin-top:min(2.5vw,30px);
+  font-size:min(20px,3vw);
+  width:min(128px,20vw);
   border-radius: 10px;
   background-color: #50cf7c;
 }
 #ex_text{
-  font-size:min(16px,3.5vw);
-  color:#787878;
+  font-size:min(16px,2vw);
+  color:#9a9a9a;
   margin-top:10px;
 }
 #helpBtn{
@@ -75,7 +85,7 @@ body{
   text-align:center;
   position:fixed;
   top:min(40px,3.vw);
-  margin-left:min(70vw,75%);
+  margin-left:min(50vw,75%);
   /* margin-left:80vw; */
   z-index: 3;
 }

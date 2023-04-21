@@ -122,17 +122,3 @@ document.getElementById("container").onkeydown = function(e){
   }
 };
 
-// triple tap on the image to activate the easter egg
-var tapCount = 0;
-var tapTimer = null;
-spriteImage.addEventListener('click', function() {
-  tapCount++;
-  if (tapCount === 3) {
-    document.getElementById("idk_label").innerHTML = "what the fuck is that?!";
-    tapCount = 0;
-  }
-  clearTimeout(tapTimer);
-  tapTimer = setTimeout(function() {
-    tapCount = 0;
-  }, 500);
-});

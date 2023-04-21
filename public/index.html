@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>Describe this sprite</title>
   <link href="style.css" type="text/css" rel="stylesheet">
-</head>
+</head> -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Describe this sprite</title>
+  <title>PICO-8 Sprite Labeler</title>
   <link href="style_mobile.css" type="text/css" rel="stylesheet">
     <style>
       
@@ -125,7 +125,7 @@
               for(let k=0;k<keys.length;k++){
                   let curCheat = keys[k];
                   let css = curCheat.split(",");
-                  console.log(css)
+                  // console.log(css)
 
                   //match
                   if(e.key == css[0]){
@@ -153,8 +153,27 @@
           keyInd = 0;
         }
       }
-
       window.addEventListener("keydown", enterCheatCode, false);
+
+      // triple tap on the image to activate the easter egg
+      function imgTripleTap(){
+        tapCount++;
+        if (tapCount === 3) {
+          document.getElementById("idk_label").innerHTML = "what the fuck is that?!";
+          tapCount = 0;
+        }
+        clearTimeout(tapTimer);
+        tapTimer = setTimeout(function() {
+          tapCount = 0;
+        }, 500);
+      }
+      var tapCount = 0;
+      var tapTimer = null;
+      document.getElementById("sprite-image").addEventListener('touchstart', imgTripleTap, false);
+
+      //prevent zoom in on mobile browser
+      document.addEventListener('touchmove', event => event.scale !== 1 && event.preventDefault(), { passive: false });
+
   </script>
 </body>
 </html>
